@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+# The input directory and the output directory
 IDIR="/home/Lab_Data/videofile/urchin_repellent_experiment/raw_videos/"
 ODIR="./temp/"
 
@@ -9,8 +10,8 @@ ODIR="./temp/"
 FILE=${IDIR}"urchin_site1_treat.mp4"
 
 # Split the video into individual png files.
-# Use png because it is lossless and there is no degradation of information.
-
+# Use png because it is lossless and there is 
+# no degradation of information.
 rm ${ODIR}/*.png
 ffmpeg -hide_banner -loglevel error -i ${FILE} ${ODIR}out_%05d.png -y
 
@@ -22,6 +23,7 @@ ffmpeg -hide_banner -loglevel error -i ${FILE} ${ODIR}out_%05d.png -y
 # -framerate 20 -pix_fmt yuv420p \
 # -c:v libx264 test.mp4
 
+########################################################
 # Not needed anymore, everything can be done in R.
 # for f in temp/*; do
 #   g=${f%.png}
